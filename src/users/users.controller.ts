@@ -50,6 +50,11 @@ export class UsersController {
     return this.usersService.findAll(getUsersParamDto, limit, page);
   }
   @Post()
+  @ApiOperation({ summary: 'Create a new user' })
+  @ApiResponse({
+    status: 201,
+    description: 'The user has been created successfully.',
+  })
   public createdUsers(@Body() createUserDto: CreateUserDto) {
     console.log(createUserDto);
 
@@ -57,6 +62,11 @@ export class UsersController {
   }
 
   @Patch()
+  @ApiOperation({ summary: 'update a user' })
+  @ApiResponse({
+    status: 201,
+    description: 'The user has been updated successfully.',
+  })
   public patchUser(@Body() pathUserDto: PatchUserDto) {
     return pathUserDto;
   }
