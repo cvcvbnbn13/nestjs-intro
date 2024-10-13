@@ -49,6 +49,7 @@ export class UsersController {
   ) {
     return this.usersService.findAll(getUsersParamDto, limit, page);
   }
+
   @Post()
   @ApiOperation({ summary: 'Create a new user' })
   @ApiResponse({
@@ -56,9 +57,7 @@ export class UsersController {
     description: 'The user has been created successfully.',
   })
   public createdUsers(@Body() createUserDto: CreateUserDto) {
-    console.log(createUserDto);
-
-    return 'You sent a post request to users endpoint';
+    return this.usersService.createUser(createUserDto);
   }
 
   @Patch()
